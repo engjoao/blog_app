@@ -7,7 +7,7 @@ RSpec.feature "Creating Articles" do
     click_link "New Article"
 
     fill_in "Title", with: "Creating first article"
-    fil_in "Body", with: "Lorem Ipsum"
+    fill_in "Body", with: "Lorem Ipsum"
     click_button "Creating Article"
 
     expect(page).to have_content("Article has been created")
