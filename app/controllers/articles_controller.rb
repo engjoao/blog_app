@@ -18,6 +18,10 @@ class ArticlesController < ApplicationController
       render :new
     end
   end
+  
+  def show
+    @article = Article.find(params[:id])
+  end
 
   private
 
