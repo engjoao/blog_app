@@ -1,4 +1,4 @@
-<h1>Listing all Article</h1>
+<h1>Listing all Articles</h1>
 
 <%= link_to "New Article", new_article_path, class: "btn btn-default btn-lg", id: "new-article-btn" %>
 
@@ -9,6 +9,11 @@
     </div>
     <div class="article-body">
       <%= truncate(article.body, legnth: 500) %>
+    </div>
+    <div class="author">
+      <% if article.user %>
+        <small>Created by: <%= article.user.email %></small>
+      <% end %>
     </div>
   </div>
 <% end %>
