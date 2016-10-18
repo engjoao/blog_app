@@ -1,21 +1,21 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.feature "Deleting Article" do
-
-  before do
-    john = User.create(email: "john@example.com", password: "password")
-    login_as(john)
-    @article = Article.create(title: "First Article", body: "body of first article", user: john)
-  end
+RSpec.feature "Deleting an Article" do
 
 
-    scenario "A user creates a new article" do
-    visit "/"
+	before do
+		john = User.create(email: "john@example.com", password: "password")
+		login_as(john)
+		@article = Article.create(title: "First Article", body: "Body of first article", user: john)
+	end
 
-    click_link @article.title
-    click_link "Delete Article"
+	scenario "A user deleted an article" do
+		visit "/"
 
-    expect(page).to have_content("Article has been deleted")
-    expect(current_path).to eq(articles_path)
-  end
+		click_link @article.title
+		click_link "Delete Article"
+
+		expect(page).to have_content("Article has been deleted")
+		expect(current_path).to eq(articles_path)
+	end
 end

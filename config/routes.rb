@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'articles/index'
   
   root to: 'articles#index'
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
 end
